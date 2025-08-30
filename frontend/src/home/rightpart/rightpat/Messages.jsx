@@ -16,8 +16,8 @@ function Messages() {
       <Loading />
     ) : (
       messages.length > 0 &&
-      messages.map((message) => (
-        <div key={message._id} >
+      messages.map((message, index) => (
+        <div key={message._id || index} >
           <Message message={message} />
         </div>
       ))

@@ -7,12 +7,18 @@ const useSendMessage = () => {
   const { messages, setMessage, selectedConversation } = useConversation();
 
   const sendMessages = async (message) => {
+    if (!selectedConversation?._id) {
+      console.log("No conversation selected");
+      return;
+    }
+    
     setLoading(true);
     try {
       const res = await axios.post(
         `/api/message/send/${selectedConversation._id}`,   { message }
       );
-      setMessage([...messages, res.data]);
+      console.log("Send message response:", res.data);
+      setMessage([...messages, res.data.newmessage]);
       setLoading(false);
     } catch (error) {
       console.log("Error in send messages", error);

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import useConversation from "../../../zustand/useConversation";
-import { useSocketContext } from "../../../context/socketContext";
+import { useSocketContext } from "../../../context/SocketContext";
 
 function User({ user }) {
   const { selectedConversation, setSelectedConversation } = useConversation();

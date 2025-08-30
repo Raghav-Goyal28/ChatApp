@@ -7,6 +7,7 @@ import { useAuth } from "../context/AuthProvider";
 
 function Signup() {
 const [authUser,setAuthUser]=useAuth();
+
   const {
     register,
     handleSubmit,

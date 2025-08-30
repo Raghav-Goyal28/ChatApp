@@ -3,6 +3,7 @@ import { useAuth } from "./AuthProvider";
 import io from "socket.io-client";
 const socketContext = createContext();
 import PropTypes from "prop-types";
+
 // it is a hook.
 export const useSocketContext = () => {
   return useContext(socketContext);
@@ -33,6 +34,7 @@ export const SocketProvider = ({ children }) => {
       }
     }
   }, [authUser]);
+  
   return (
     <socketContext.Provider value={{ socket, onlineUsers }}>
       {children}
